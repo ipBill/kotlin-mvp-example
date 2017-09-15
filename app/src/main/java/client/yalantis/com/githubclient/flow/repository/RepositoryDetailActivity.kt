@@ -26,7 +26,6 @@ class RepositoryDetailActivity : BaseMvpActivity<RepositoryDetailsContract.View,
                 Intent(context, RepositoryDetailActivity::class.java).apply {
                     putExtra(NAME, name)
                 }
-
     }
 
 
@@ -64,6 +63,5 @@ class RepositoryDetailActivity : BaseMvpActivity<RepositoryDetailsContract.View,
         progressBar.visibility = View.GONE
         btnReload.visibility = View.VISIBLE
     }
-
 
 }

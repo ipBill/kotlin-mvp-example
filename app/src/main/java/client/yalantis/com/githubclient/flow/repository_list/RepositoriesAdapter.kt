@@ -6,7 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import client.yalantis.com.githubclient.R
 import client.yalantis.com.githubclient.model.Repository
-import kotlinx.android.synthetic.main.item_repository.view.*
+import kotlinx.android.extensions.LayoutContainer
+import kotlinx.android.synthetic.main.item_repository.*
 
 /**
  * Created by andrewkhristyan on 10/5/16.
@@ -28,13 +29,13 @@ class RepositoriesAdapter(private val repositories: MutableList<Repository>,
         }
     }
 
-    class ViewHolder(itemView: View, val onClick: (Repository) -> Unit) : RecyclerView.ViewHolder(itemView) {
+    class ViewHolder(override val containerView: View, val onClick: (Repository) -> Unit) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
         fun bindData(repository: Repository) {
             with(repository) {
-                itemView.text_view_title.text = name
-                itemView.text_view_description.text = description
-                itemView.setOnClickListener { onClick(this) }
+                text_view_title.text = name
+                text_view_description.text = description
+                containerView.setOnClickListener { onClick(this) }
             }
         }
     }
