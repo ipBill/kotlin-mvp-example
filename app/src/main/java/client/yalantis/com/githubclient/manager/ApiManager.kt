@@ -1,13 +1,12 @@
 package client.yalantis.com.githubclient.manager
 
 import client.yalantis.com.githubclient.api.GithubService
-import com.google.gson.GsonBuilder
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory
-import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.converter.moshi.MoshiConverterFactory
 import rx.android.schedulers.AndroidSchedulers
 import rx.schedulers.Schedulers
 
@@ -44,15 +43,12 @@ object ApiManager {
 
         return Retrofit.Builder().baseUrl(SERVER)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .addConverterFactory(createGsonConverter())
+                .addConverterFactory(createMoshiConverter())
                 .client(client.build())
                 .build()
     }
 
-    private fun createGsonConverter(): GsonConverterFactory {
-        val builder = GsonBuilder().serializeNulls()
-        return GsonConverterFactory.create(builder.create())
-    }
+    private fun createMoshiConverter(): MoshiConverterFactory = MoshiConverterFactory.create()
 
     private fun initServices(retrofit: Retrofit) {
         mGithubService = retrofit.create(GithubService::class.java)

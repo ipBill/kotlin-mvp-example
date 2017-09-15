@@ -1,7 +1,6 @@
 package client.yalantis.com.githubclient
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
+import com.squareup.moshi.Moshi
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -16,7 +15,5 @@ fun String.formatDate(): String {
     return format.format(date).toString()
 }
 
-inline fun <reified T> Gson.fromJson(json: String): T {
-    return this.fromJson<T>(json, object: TypeToken<T>() {}.type)
-}
+inline fun <reified T> Moshi.fromJson(json: String): T = this.adapter(T::class.java).fromJson(json)
 
