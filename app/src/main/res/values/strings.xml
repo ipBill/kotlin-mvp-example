@@ -9,4 +9,7 @@
     <string name="internet_connection_unavailable">Internet connection unavailable</string>
     <string name="server_error">Server error</string>
     <string name="lbl_reload">Reload</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
