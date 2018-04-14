@@ -10,13 +10,15 @@ import client.yalantis.com.githubclient.R
 import client.yalantis.com.githubclient.mvp.BaseMvpFragment
 import kotlinx.android.synthetic.main.fragment_main.*
 
+
+private const val ARG_PARAM1 = "param1"
+private const val ARG_PARAM2 = "param2"
+
+
 class MainFragment : BaseMvpFragment<MainContract.View, MainPresenter>(), MainContract.View {
     override fun updateViewClickMe() {
         tvHello.text = "Hello ClickMe Already"
     }
-
-    private val ARG_PARAM1 = "param1"
-    private val ARG_PARAM2 = "param2"
 
     override var mPresenter: MainPresenter = MainPresenter()
 
