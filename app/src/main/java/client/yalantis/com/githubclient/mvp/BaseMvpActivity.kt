@@ -4,6 +4,7 @@ import android.content.Context
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.widget.Toast
+import client.yalantis.com.githubclient.formatDate
 
 /**
  * Created by andrewkhristyan on 10/2/16.
